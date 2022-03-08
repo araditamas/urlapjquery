@@ -2,7 +2,11 @@ $(document).ready(function() //ha az oldal betöltődött
 {
     $('input').focus(function()
     {
-        $(this).css('background-color', 'yellow');
+        $(this).toggleClass('active');
+    })
+    $('input').blur(function()
+    {
+        $(this).toggleClass('active');
     })
 
 })

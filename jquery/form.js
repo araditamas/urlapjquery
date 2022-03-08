@@ -9,4 +9,9 @@ $(document).ready(function() //ha az oldal betöltődött
         $(this).toggleClass('active');
     })
 
+    $('[type="submit"]').click(function(ev)
+    {
+        ev.preventDefault();
+    })
+
 })

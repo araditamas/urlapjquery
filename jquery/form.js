@@ -1,4 +1,5 @@
 let userInputValues;
+let send = null;
 $(document).ready(function() //ha az oldal betöltődött
 {
     $('input').focus(function()
@@ -19,15 +20,16 @@ $(document).ready(function() //ha az oldal betöltődött
         ev.preventDefault();
         $('.values').html(userInputValues);
     })
-    $('[type = "submit"]').mouseover(function()
+    $('[type = "submit"]').change(function()
     {
+        console.log('Over')
         let un = $('[name="uname"]').val();
         let pwd = $('[name="pwd"]').val();
         //checkbox
         let bd = $('[name="date"]').val();
-        if(un.lenght >5 && pwd.lenght > 5 && bd.lenght == 8)
+        if(un.lenght >5 && pwd.lenght > 5 && bd.lenght == 10)
         {
-            //fetch...
+            $('[type="submit"]').prob('disabled', false);
         }
     })
 

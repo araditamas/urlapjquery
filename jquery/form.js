@@ -20,17 +20,27 @@ $(document).ready(function() //ha az oldal betöltődött
         ev.preventDefault();
         $('.values').html(userInputValues);
     })
-    $('[type = "submit"]').change(function()
-    {
-        console.log('Over')
-        let un = $('[name="uname"]').val();
-        let pwd = $('[name="pwd"]').val();
-        //checkbox
-        let bd = $('[name="date"]').val();
-        if(un.lenght >5 && pwd.lenght > 5 && bd.lenght == 10)
-        {
-            $('[type="submit"]').prob('disabled', false);
-        }
-    })
+    $('[type = "date"]').change(ell) //Csak a dátum típusú input elemhez csatolja az ellenőrzést
+    //$('[type = "uname"]').change(ell)
+    //ready vége
 
 })
+        function ell()
+    {
+        let un = $('[name="uname"]').val();
+        let pwd = $('[name="pwd"]').val();
+        let bd = $('[name="date"]').val();
+        let cb = $('[name="reszvetel"]').prop('checked');
+
+        //console.log(cb)
+
+        if(un.lenght >5 && pwd.lenght > 5 && bd.lenght == 10 && cb)
+        {
+            $('[type="submit"]').prob('disabled', false);
+            send = {'username':un,
+                    'pwd':pwd,
+                    'birthdate':bd
+                    } 
+                    console.log(send)
+        }
+    }
